@@ -1,0 +1,46 @@
+.profile-div{
+  background-color: blue;
+  width: 445px;
+  height: 1468px;
+}
+.profile-div:before {
+  color: white;
+  content: "Profile Div";
+}
+
+.navbar-element {
+  background-color: red;
+  width: 1226px;
+  height: 96px;
+}
+.navbar-element:before {
+  content: "Navbar Element";
+}
+
+.main-content-div {
+  background-color: green;
+  width: 1251px;
+  height: 569px;
+}
+.main-content-div:before {
+  content: "Main Content Div";
+}
+
+.form-div {
+  background-color: yellow;
+  width: 1226px;
+  height: 627px;
+}
+.form-div:before {
+  content: "Form Div";
+}
+
+.footer-element {
+  background-color: purple;
+  width: 1714px;
+  height: 96px;
+}
+.footer-element:before {
+  color: white;
+  content: "Footer";
+}
