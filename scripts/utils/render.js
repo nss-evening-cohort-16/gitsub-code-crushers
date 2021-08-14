@@ -1,5 +1,5 @@
 import { githubSVG } from "./constants.js";
-import { repositories, userObj } from "./data.js";
+import { userObj } from "./data.js";
 
 const renderToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
@@ -7,9 +7,22 @@ const renderToDom = (divId, textToPrint) => {
 };
 
 /* Card Builders */
-const projectsCardBuilder = ()=> {
-    return;
-}
+const projectsCardBuilder = (projectsArr)=> {
+    let domString = ""
+    projectsArr.forEach(project => {
+        domString += `<div class="card" style="width: 18rem;">
+        <div class="card-header">
+         Projects
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">${project.name}</li>
+          <li class="list-group-item">${project.description}</li>
+        </ul>
+     </div>`;
+    });
+
+  renderToDom("#mainContentDiv", domString);
+};
 
 const overviewCardBuilder = (reposArray) => {
   const pinnedRepos = reposArray.filter(r => r.isPinned);
@@ -90,6 +103,8 @@ const projectsFormBuilder = () => {
   return;
 };
 
+
+
 // Builds Footer
 
 const footerBuilder = () => {
@@ -167,7 +182,6 @@ const profileBuilder = () => {
 }
 
 export {
-    projectsCardBuilder,
     overviewCardBuilder,
     packageCardBuilder,
     repoCardBuilder,
@@ -175,6 +189,7 @@ export {
     repoFormBuilder,
     packageFormBuilder,
     projectsFormBuilder,
+    projectsCardBuilder,
     footerBuilder,
     profileBuilder,
 };
