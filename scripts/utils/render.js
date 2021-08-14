@@ -19,8 +19,22 @@ const repoCardBuilder = () => {
     return;
 };
 
-const packageCardBuilder = () => {
-    return;
+const packageCardBuilder = (array) => {
+  let domString = " "
+  array.forEach(arrayItem => {
+    domString += `<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${arrayItem.name}</h5>
+      <p class="card-text">${arrayItem.description}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>`
+    
+  });
+
+  renderToDom("#mainContentDiv", domString);
+
 };
 
 /* Form Builders */
