@@ -4,4 +4,4 @@ const githubSVG = `
   </svg>
 `;
 
-export {githubSVG }
+export { githubSVG }
