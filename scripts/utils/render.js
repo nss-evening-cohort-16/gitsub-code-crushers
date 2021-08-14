@@ -15,7 +15,7 @@ const overviewCardBuilder = (reposArray) => {
   const pinnedRepos = reposArray.filter(r => r.isPinned);
 
   let domString = `
-    <div>
+    <div class="p-3">
       <h2>Pinned</h2>
       <div class="d-flex flex-wrap">
         ${pinnedRepos.map(repo => `
