@@ -13,6 +13,7 @@ const projectsCardBuilder = ()=> {
 
 const overviewCardBuilder = (reposArray) => {
   const pinnedRepos = reposArray.filter(r => r.isPinned);
+
   let domString = `
     <div>
       <h2>Pinned</h2>
@@ -32,7 +33,7 @@ const overviewCardBuilder = (reposArray) => {
     </div>
   `;
 
-  renderToDom("#mainContentDiv", domString)
+  renderToDom("#mainContentDiv", domString);
 };
 
 const repoCardBuilder = () => {
