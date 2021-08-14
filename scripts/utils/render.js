@@ -90,20 +90,6 @@ const footerBuilder = () => {
   renderToDom('#footerContainer', domString);
 }
 
-// const userObj = {
-//     name: 'Monica Powell',
-//     profileImage: 'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2020-02/the-easiest-loaf-of-bread-youll-ever-bake.jpg?itok=j89yDeId',
-//     username: 'M0nica',
-//     description: 'Building tech to elevate people. Founder of React Ladies a community for React JS developers.',
-//     followers: 123123,
-//     following: 12312,
-//     starred: 23434,
-//     location: 'Nashville, TN',
-//     email: 'test@email.com',
-//     website: 'gitsub-codecrushers.netlify.app',
-//     twitter: '@testuser',
-//   };
-
 const profileBuilder = () => {
     const domString = `
     <div class="card" style="width: 18rem;">
