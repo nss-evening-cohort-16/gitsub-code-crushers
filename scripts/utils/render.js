@@ -11,8 +11,28 @@ const projectsCardBuilder = ()=> {
     return;
 }
 
-const overviewCardBuilder = () => {
-    return;
+const overviewCardBuilder = (reposArray) => {
+  const pinnedRepos = reposArray.filter(r => r.isPinned);
+  let domString = `
+    <div>
+      <h2>Pinned</h2>
+      <div class="d-flex flex-wrap">
+        ${pinnedRepos.map(repo => `
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">${repo.name}</h5>
+            <p class="card-text">${repo.description}</p>
+            <div class="card-footer text-muted">
+              ${repo.language}
+            </div>
+          </div>
+        </div>
+        `).join(" ")}
+      </div>
+    </div>
+  `;
+
+  renderToDom("#mainContentDiv", domString)
 };
 
 const repoCardBuilder = () => {
@@ -86,7 +106,7 @@ const footerBuilder = () => {
       </li>
     </ul>
   `;
-  
+
   renderToDom('#footerContainer', domString);
 }
 
