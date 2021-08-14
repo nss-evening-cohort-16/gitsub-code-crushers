@@ -1,7 +1,8 @@
-import { footerBuilder } from "./utils/render.js";
+import { footerBuilder, profileBuilder } from "./utils/render.js";
 
 const init = () => {
-    footerBuilder(),
+    footerBuilder()
+    profileBuilder()
     console.log("repositories");
 };
 

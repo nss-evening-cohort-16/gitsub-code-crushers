@@ -103,8 +103,8 @@ const userObj = {
   starred: 23434,
   location: 'Nashville, TN',
   email: 'test@email.com',
-  website: 'gitsub-codecrushers.netlify.app',
-  twitter: '@testuser',
+  website: 'https://gitsub-codecrushers.netlify.app',
+  twitter: 'twitter',
 };
 
 export {

@@ -1,4 +1,6 @@
-import { githubSVG } from "./constants.js"
+import { githubSVG } from "./constants.js";
+import { userObj } from "./data.js";
+
 const renderToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = textToPrint;
@@ -86,8 +88,46 @@ const footerBuilder = () => {
   `;
   
   renderToDom('#footerContainer', domString);
+}
 
-    console.log('footer goes here');
+// const userObj = {
+//     name: 'Monica Powell',
+//     profileImage: 'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2020-02/the-easiest-loaf-of-bread-youll-ever-bake.jpg?itok=j89yDeId',
+//     username: 'M0nica',
+//     description: 'Building tech to elevate people. Founder of React Ladies a community for React JS developers.',
+//     followers: 123123,
+//     following: 12312,
+//     starred: 23434,
+//     location: 'Nashville, TN',
+//     email: 'test@email.com',
+//     website: 'gitsub-codecrushers.netlify.app',
+//     twitter: '@testuser',
+//   };
+
+const profileBuilder = () => {
+    const domString = `
+    <div class="card" style="width: 18rem;">
+    <img src="${userObj.profileImage}" class="card-img-top" alt="Profile Image">
+    <div class="card-body">
+      <h5 class="card-title">${userObj.name}</h5>
+      <h4>${userObj.username}</h4>
+      <p class="card-text">${userObj.description}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Followers: ${userObj.followers}</li>
+      <li class="list-group-item">Following: ${userObj.following}</li>
+      <li class="list-group-item">Starred: ${userObj.starred}</li>
+      <li class="list-group-item">${userObj.location}</li>
+    </ul>
+    <div class="card-body">
+      <a href="mailto:${userObj.email}" target="_blank" class="card-link">Email</a>
+      <a href="${userObj.website}" target="_blank" class="card-link">Website</a>
+      <a href="https://www.twitter.com/${userObj.twitter}" target="_blank" class="card-link">Twitter: ${userObj.twitter}</a>
+    </div>
+  </div>`
+
+
+  renderToDom("#profileDiv", domString);
 }
 
 export {
@@ -99,5 +139,6 @@ export {
     repoFormBuilder,
     packageFormBuilder,
     projectsFormBuilder,
-    footerBuilder
+    footerBuilder,
+    profileBuilder,
 };
