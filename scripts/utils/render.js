@@ -1,5 +1,5 @@
 import { githubSVG } from "./constants.js";
-import { userObj, projects } from "./data.js";
+import { userObj } from "./data.js";
 
 const renderToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
@@ -28,12 +28,41 @@ const overviewCardBuilder = () => {
     return;
 };
 
-const repoCardBuilder = () => {
-    return;
+const repoCardBuilder = (repoArray) => {
+  let domString = "";
+  repoArray.forEach((repo) => {
+    domString += `
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+      <div class="card-body text-dark">
+        <h5 class="card-title">${repo.name}</h5>
+        <p class="card-text">${repo.description}</p>
+        <div class="repo-languages">
+            <p class="card-text">${repo.language}</p>
+        </div>
+      </div>
+
+    </div>
+  `
+  });
+    renderToDom('#mainContentDiv', domString);
 };
 
-const packageCardBuilder = () => {
-    return;
+const packageCardBuilder = (array) => {
+  let domString = " "
+  array.forEach(arrayItem => {
+    domString += `<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${arrayItem.name}</h5>
+      <p class="card-text">${arrayItem.description}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>`
+    
+  });
+
+  renderToDom("#mainContentDiv", domString);
+
 };
 
 /* Form Builders */
