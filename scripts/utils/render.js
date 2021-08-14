@@ -1,5 +1,5 @@
 import { githubSVG } from "./constants.js";
-import { userObj } from "./data.js";
+import { repositories, userObj } from "./data.js";
 
 const renderToDom = (divId, textToPrint) => {
     const selectedDiv = document.querySelector(divId);
@@ -36,8 +36,23 @@ const overviewCardBuilder = (reposArray) => {
   renderToDom("#mainContentDiv", domString);
 };
 
-const repoCardBuilder = () => {
-    return;
+const repoCardBuilder = (repoArray) => {
+  let domString = "";
+  repoArray.forEach((repo) => {
+    domString += `
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+      <div class="card-body text-dark">
+        <h5 class="card-title">${repo.name}</h5>
+        <p class="card-text">${repo.description}</p>
+        <div class="repo-languages">
+            <p class="card-text">${repo.language}</p>
+        </div>
+      </div>
+
+    </div>
+  `
+  });
+    renderToDom('#mainContentDiv', domString);
 };
 
 const packageCardBuilder = (array) => {
