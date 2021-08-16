@@ -1,3 +1,20 @@
 .page-content {
     display: flex;
 }
+
+.app-container {
+    max-width: 1280px;
+}
+
+.profile-container {
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+
+@media (min-width: 768px){
+    .profile-container {
+        width: 25%;
+        margin-bottom: 0px;
+    }
+}
