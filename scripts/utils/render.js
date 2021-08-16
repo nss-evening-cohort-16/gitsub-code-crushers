@@ -79,7 +79,7 @@ const packageCardBuilder = (array) => {
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>`
-    
+
   });
 
   renderToDom("#mainContentDiv", domString);
@@ -157,7 +157,7 @@ const footerBuilder = () => {
 
 const profileBuilder = () => {
     const domString = `
-    <div class="card" style="width: 18rem;">
+    <div class="card">
     <img src="${userObj.profileImage}" class="card-img-top" alt="Profile Image">
     <div class="card-body">
       <h5 class="card-title">${userObj.name}</h5>
