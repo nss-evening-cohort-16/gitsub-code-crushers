@@ -96,7 +96,21 @@ const repoFormBuilder = () => {
 }
 
 const packageFormBuilder = () => {
-  return;
+  const domString = `
+  <form>
+  <div class="mb-3">
+    <label for="packageName" class="form-label">Package Name</label>
+    <input type="text" class="form-control" id="packageName">
+  </div>
+  <div class="mb-3">
+    <label for="packageDescription" class="form-label">Package Description</label>
+    <input type="text" class="form-control" id="packageDescription">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+  `
+
+  renderToDom("#formDiv", domString);
 };
 
 const projectsFormBuilder = () => {
