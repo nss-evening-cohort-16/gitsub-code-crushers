@@ -92,7 +92,28 @@ const overviewFormBuilder= () => {
 }
 
 const repoFormBuilder = () => {
-    return;
+  const domString = `
+  <h2>
+  Create a new repository
+  </h2>
+  <form>
+    <div class="mb-3">
+      <label for="repoName" class="form-label">Repository name</label>
+      <input type="text" class="form-control" id="repoName" aria-describedby="nameHelp" required>
+      <div id="nameHelp" class="form-text">Great repository names are short and memorable.</div>
+  </div>
+  <div class="mb-3">
+      <label for="repoDesc" class="form-label">Description</label>
+      <span class="greyed">(optional)</span>
+      <input type="text" class="form-control" id="repoDesc">
+  </div>
+  
+      <button type="submit" class="btn btn-success">Create repository</button>
+  </form>
+  `;
+
+  renderToDom('#formDiv', domString);
+    
 }
 
 const packageFormBuilder = () => {
