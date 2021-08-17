@@ -1,6 +1,6 @@
 import { footerBuilder, profileBuilder, repoCardBuilder, repoFormBuilder, } from "./utils/render.js";
 import { repositories } from "./utils/data.js"
-import { repoFormSubmit } from "./utils/events.js";
+import { repoEvents } from "./utils/events.js";
 
 
 
@@ -9,7 +9,7 @@ const init = () => {
     profileBuilder();
     repoCardBuilder(repositories);
     repoFormBuilder();
-    repoFormSubmit()
+    repoEvents()
 };
 
 init();

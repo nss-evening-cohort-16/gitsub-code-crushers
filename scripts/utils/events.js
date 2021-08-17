@@ -4,12 +4,11 @@ import { repoCardBuilder } from "./render.js";
 const repoFormSubmit = (event) => {
   event.preventDefault();
   const newRepo = {
-    name: document.querySelector("#repoName"),
-    description: document.querySelector("#repoDesc")
+    name: document.querySelector("#repoName").value,
+    description: document.querySelector("#repoDesc").value
   };
   repositories.push(newRepo);
   repoCardBuilder(repositories);
-  console.log(repositories);
 
 };
 
