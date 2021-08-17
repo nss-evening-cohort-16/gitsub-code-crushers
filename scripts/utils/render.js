@@ -43,7 +43,7 @@ const overviewCardBuilder = (reposArray) => {
           <div class="card-body">
             <h5 class="card-title">${repo.name}</h5>
             <p class="card-text">${repo.description}</p>
-            <button class="btn btn-success" id="unpin---${repo.index}">Unpin</button>
+            <button class="btn btn-success" id="unpinRepo---${repo.index}">Unpin</button>
             <div class="card-footer text-muted">
               ${repo.language}
             </div>
