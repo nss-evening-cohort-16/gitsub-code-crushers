@@ -1,9 +1,19 @@
-const repoFormSubmit = () => {
-  return;
-}
+import { repositories } from "./data.js";
+import { repoCardBuilder } from "./render.js";
+
+const repoFormSubmit = (event) => {
+  event.preventDefault();
+  const newRepo = {
+    name: document.querySelector("#repoName").value,
+    description: document.querySelector("#repoDesc").value
+  };
+  repositories.push(newRepo);
+  repoCardBuilder(repositories);
+
+};
 
 const repoEvents = () => {
-  const formArea = document.querySelector('#formDiv');
+  const formArea = document.querySelector('#repoForm');
   formArea.addEventListener('submit', repoFormSubmit);
 };
 
@@ -23,5 +33,6 @@ export {
   repoEvents,
   packageEvents,
   projectsEvents,
-  overviewEvents
+  overviewEvents,
+  repoFormSubmit
 }
