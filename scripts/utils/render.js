@@ -252,7 +252,7 @@ const profileBuilder = () => {
     <div class="card-body">
       <a href="mailto:${userObj.email}" target="_blank" class="card-link">Email</a>
       <a href="${userObj.website}" target="_blank" class="card-link">Website</a>
-      <a href="https://www.twitter.com/${userObj.twitter}" target="_blank" class="card-link">Twitter: ${userObj.twitter}</a>
+      <a href="https://www.twitter.com/${userObj.twitter}" target="_blank" class="card-link">Twitter</a>
     </div>
   </div>`;
 
