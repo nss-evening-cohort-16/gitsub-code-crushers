@@ -13,7 +13,7 @@ const repoFormSubmit = (event) => {
 };
 
 const repoEvents = () => {
-  const formArea = document.querySelector('#formDiv');
+  const formArea = document.querySelector('#repoForm');
   formArea.addEventListener('submit', repoFormSubmit);
 };
 
