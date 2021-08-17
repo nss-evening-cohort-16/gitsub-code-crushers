@@ -1,5 +1,6 @@
 import { githubSVG } from './constants.js';
 import { userObj } from './data.js';
+import { overviewEvents } from './events.js';
 
 const renderToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
@@ -7,32 +8,34 @@ const renderToDom = (divId, textToPrint) => {
 };
 
 /* Card Builders */
-const projectsCardBuilder = (projectsArr)=> {
-    let domString = ""
-    projectsArr.forEach(project => {
-        domString += `<div class="card card bkg-dark gh-border-dark text-white">
+const projectsCardBuilder = (projectsArr) => {
+  let domString = '';
+  projectsArr.forEach((project) => {
+    domString += `<div class="card card bkg-dark gh-border-dark text-white">
         <div class="card-header">
         ${project.name}
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">${project.description}</li>
-          
+
         </ul>
      </div>`;
   });
-  
+
   renderToDom('#mainContentDiv', domString);
 };
 
 // projects form
 
 const overviewCardBuilder = (reposArray) => {
-  const pinnedRepos = reposArray.filter((r) => r.isPinned);
+  const pinnedRepos = reposArray
+    .map((r, index) => ({...r, index}))
+    .filter((r) => r.isPinned);
 
   let domString = `
     <div class="p-3">
       <h2>Pinned</h2>
-      <div class="d-flex flex-wrap">
+      <div class="d-flex flex-wrap" id="pinnedCards">
         ${pinnedRepos
           .map(
             (repo) => `
@@ -40,6 +43,7 @@ const overviewCardBuilder = (reposArray) => {
           <div class="card-body">
             <h5 class="card-title">${repo.name}</h5>
             <p class="card-text">${repo.description}</p>
+            <button class="btn btn-success" id="unpinRepo---${repo.index}">Unpin</button>
             <div class="card-footer text-muted">
               ${repo.language}
             </div>
@@ -53,6 +57,7 @@ const overviewCardBuilder = (reposArray) => {
   `;
 
   renderToDom('#mainContentDiv', domString);
+  document.querySelector('#pinnedCards').addEventListener('click', overviewEvents)
 };
 
 const repoCardBuilder = (repoArray) => {
@@ -71,8 +76,8 @@ const repoCardBuilder = (repoArray) => {
     </div>
   `;
   });
-    domString += `</div>`
-    renderToDom('#mainContentDiv', domString);
+  domString += `</div>`;
+  renderToDom('#mainContentDiv', domString);
 };
 
 const packageCardBuilder = (array) => {
@@ -86,15 +91,30 @@ const packageCardBuilder = (array) => {
   </div>`;
   });
 
-  domString += "</div>"
+  domString += '</div>';
 
-  renderToDom("#mainContentDiv", domString);
-
+  renderToDom('#mainContentDiv', domString);
 };
 
 /* Form Builders */
-const overviewFormBuilder = () => {
-  return;
+const overviewFormBuilder = (repoArray) => {
+  const domString = `
+  <form id="pinRepoForm">
+    <div class="mb-3">
+      <label for="pinRepoSelect" class="form-label"><h2>Pin a Repo</h2></label>
+      <select required id="pinRepoSelect" class="form-control form-select form-select-lg" aria-label="Pin Repo Select">
+        <option value="" selected>Select a Repo</option>
+        ${repoArray
+          .map((r, index) => ({ ...r, index }))
+          .filter((r) => !r.isPinned)
+          .map((r) => `<option value="${r.index}">${r.name}</option>`)}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">Pin Repo</button>
+  </form>
+  `;
+  renderToDom('#formDiv', domString);
+  document.querySelector('#pinRepoForm').addEventListener('submit', overviewEvents)
 };
 
 const repoFormBuilder = () => {

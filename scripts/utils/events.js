@@ -1,5 +1,5 @@
 import { projects, packages, repositories } from "./data.js";
-import { projectsCardBuilder, packageCardBuilder, repoCardBuilder } from "./render.js";
+import { projectsCardBuilder, packageCardBuilder, repoCardBuilder, overviewCardBuilder, overviewFormBuilder } from "./render.js";
 
 const repoFormSubmit = (event) => {
   event.preventDefault();
@@ -23,14 +23,14 @@ const packageEvents = () => {
 };
 
 const projectsFormSubmit = (event) => {
-    
+
   event.preventDefault();
 
   const newCard = {
     name: document.querySelector("#boardName").value,
     description: document.querySelector("#boardDesc").value,
   };
-  
+
   projects.push(newCard);
   projectsCardBuilder(projects);
   document.querySelector("#projectForm").reset();
@@ -59,11 +59,19 @@ const projectsEvents = () => {
   projectForm.addEventListener("submit", projectsFormSubmit);
 };
 
-
-
-
-const overviewEvents = () => {
-  return;
+const overviewEvents = (e) => {
+  e.preventDefault()
+  if(e.target.id === 'pinRepoForm'){
+    const pinIndex = document.querySelector('#pinRepoSelect').value;
+    repositories[pinIndex].isPinned = true;
+    overviewCardBuilder(repositories);
+    overviewFormBuilder(repositories);
+  } else if (e.target.id.includes('unpinRepo')){
+    const unpinIndex = e.target.id.split("---")[1];
+    repositories[unpinIndex].isPinned = false;
+    overviewCardBuilder(repositories);
+    overviewFormBuilder(repositories);
+  }
 };
 
 export {
