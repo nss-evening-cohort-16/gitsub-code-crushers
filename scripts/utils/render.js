@@ -237,10 +237,10 @@ const profileBuilder = () => {
       <p class="card-text">${userObj.description}</p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Followers: ${userObj.followers}</li>
-      <li class="list-group-item">Following: ${userObj.following}</li>
-      <li class="list-group-item">Starred: ${userObj.starred}</li>
-      <li class="list-group-item">${userObj.location}</li>
+      <li class="list-group-item text-white bkg-dark gh-border-dark">Followers: ${userObj.followers}</li>
+      <li class="list-group-item text-white bkg-dark gh-border-dark">Following: ${userObj.following}</li>
+      <li class="list-group-item text-white bkg-dark gh-border-dark">Starred: ${userObj.starred}</li>
+      <li class="list-group-item text-white bkg-dark gh-border-dark">${userObj.location}</li>
     </ul>
     <div class="card-body">
       <a href="mailto:${userObj.email}" target="_blank" class="card-link">Email</a>
