@@ -53,10 +53,10 @@ const overviewCardBuilder = (reposArray) => {
 };
 
 const repoCardBuilder = (repoArray) => {
-  let domString = "";
+  let domString = `<div class="d-flex flex-wrap">`;
   repoArray.forEach((repo) => {
     domString += `
-    <div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div class="card border-dark m-3" style="max-width: 18rem;">
       <div class="card-body text-dark">
         <h5 class="card-title">${repo.name}</h5>
         <p class="card-text">${repo.description}</p>
@@ -68,6 +68,7 @@ const repoCardBuilder = (repoArray) => {
     </div>
   `
   });
+    domString += `</div>`
     renderToDom('#mainContentDiv', domString);
 };
 
@@ -96,6 +97,7 @@ const overviewFormBuilder= () => {
 
 const repoFormBuilder = () => {
   const domString = `
+  <div class="m-3">
   <h2>
   Create a new repository
   </h2>
@@ -110,9 +112,14 @@ const repoFormBuilder = () => {
       <span class="greyed">(optional)</span>
       <input type="text" class="form-control" id="repoDesc">
   </div>
+  <div class="mb-3">
+      <label for="repoLang" class="form-label">Languages</label>
+      <input type="text" class="form-control" id="repoLang">
+  </div>
   
       <button type="submit" class="btn btn-success">Create repository</button>
   </form>
+  </div>
   `;
 
   renderToDom('#formDiv', domString);
