@@ -10,7 +10,7 @@ const renderToDom = (divId, textToPrint) => {
 const projectsCardBuilder = (projectsArr)=> {
     let domString = ""
     projectsArr.forEach(project => {
-        domString += `<div class="card" style="width: 18rem;">
+        domString += `<div class="card bg-dark text-white" style="width: 18rem;">
         <div class="card-header">
          Projects
         </div>
@@ -32,7 +32,7 @@ const overviewCardBuilder = (reposArray) => {
       <h2>Pinned</h2>
       <div class="d-flex flex-wrap">
         ${pinnedRepos.map(repo => `
-        <div class="card" style="width: 18rem;">
+        <div class="card bg-dark text-white" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${repo.name}</h5>
             <p class="card-text">${repo.description}</p>
@@ -53,8 +53,8 @@ const repoCardBuilder = (repoArray) => {
   let domString = "";
   repoArray.forEach((repo) => {
     domString += `
-    <div class="card border-dark mb-3" style="max-width: 18rem;">
-      <div class="card-body text-dark">
+    <div class="card bg-dark border-dark text-white mb-3" style="max-width: 18rem;">
+      <div class="card-body">
         <h5 class="card-title">${repo.name}</h5>
         <p class="card-text">${repo.description}</p>
         <div class="repo-languages">
@@ -71,7 +71,7 @@ const repoCardBuilder = (repoArray) => {
 const packageCardBuilder = (array) => {
   let domString = " "
   array.forEach(arrayItem => {
-    domString += `<div class="card" style="width: 18rem;">
+    domString += `<div class="card text-white bg-dark" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">${arrayItem.name}</h5>
@@ -157,10 +157,11 @@ const footerBuilder = () => {
 
 const profileBuilder = () => {
     const domString = `
-    <div class="card">
+    <div id="smallUserNameDiv" class="hide-name bg-dark"><h5 class="card-title">${userObj.name}</h5></div>
+    <div class="card text-white bg-dark">
     <img src="${userObj.profileImage}" class="card-img-top" alt="Profile Image">
     <div class="card-body">
-      <h5 class="card-title">${userObj.name}</h5>
+      <h5 id="usernameDiv" class="card-title">${userObj.name}</h5>
       <h4>${userObj.username}</h4>
       <p class="card-text">${userObj.description}</p>
     </div>
@@ -179,6 +180,23 @@ const profileBuilder = () => {
 
 
   renderToDom("#profileDiv", domString);
+
+  const smallUserNameDiv = document.querySelector("#smallUserNameDiv");
+
+  const myScrollFunc = function() {
+    const usernameDiv = document.querySelector("#usernameDiv");
+    const y = window.scrollY;
+    const usernameLocation = usernameDiv.getBoundingClientRect().top
+
+    console.log(usernameLocation <= 0);
+    if (usernameLocation <= 0) {
+      smallUserNameDiv.className = "show-name"
+    } else {
+      smallUserNameDiv.className = "hide-name"
+    }
+  };
+
+  window.addEventListener("scroll", myScrollFunc);
 }
 
 export {
