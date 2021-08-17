@@ -95,7 +95,7 @@ const projects = [
 
 const userObj = {
   name: 'Monica Powell',
-  profileImage: 'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80',
+  profileImage: 'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2020-02/the-easiest-loaf-of-bread-youll-ever-bake.jpg?itok=j89yDeId',
   username: 'M0nica',
   description: 'Building tech to elevate people. Founder of React Ladies a community for React JS developers.',
   followers: 123123,
