@@ -105,11 +105,11 @@ const packageFormBuilder = () => {
 const projectsFormBuilder = () => {
     const domString = `
         <form>
-            <label for="board-name">Project board name</label><br>
-            <input id="board-name" type="text"><br>
-            <label for="board-desc">Project board description</label><br>
-            <input id="board-desc"><br>
-            <button type="submit" id="submit-btn">Create Project</button>
+            <label for="boardName">Project board name</label><br>
+            <input id="boardName" type="text"><br>
+            <label for="boardDesc">Project board description</label><br>
+            <input id="boardDesc"><br>
+            <button type="submit" id="submitBtn">Create Project</button>
         </form>
     `;
 
