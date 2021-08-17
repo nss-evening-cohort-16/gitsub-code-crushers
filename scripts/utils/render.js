@@ -12,15 +12,17 @@ const projectsCardBuilder = (projectsArr)=> {
     projectsArr.forEach(project => {
         domString += `<div class="card card bkg-dark gh-border-dark text-white">
         <div class="card-header">
-         Projects
+        ${project.name}
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">${project.name}</li>
           <li class="list-group-item">${project.description}</li>
+          
         </ul>
      </div>`;
   });
 
+  // Projects
+  //<li class="list-group-item">${project.description}</li>
   renderToDom('#mainContentDiv', domString);
 };
 
@@ -147,13 +149,17 @@ const packageFormBuilder = () => {
 
 const projectsFormBuilder = () => {
     const domString = `
-        <form id="projectForm">
-            <label for="boardName">Project board name</label><br>
-            <input id="boardName" type="text"><br>
-            <label for="boardDesc">Project board description</label><br>
-            <input id="boardDesc"><br>
-            <button type="submit" id="submitBtn">Create Project</button>
-        </form>
+    <form id="projectForm">
+    <div class="mb-3">
+      <label for="boardName" class="form-label">Project Name</label>
+      <input type="text" class="form-control" id="boardName">
+    </div>
+    <div class="mb-3">
+      <label for="boardDesc" class="form-label">Project Description</label>
+      <input type="text" class="form-control" id="boardDesc">
+    </div>
+    <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
+  </form>
     `;
 
   renderToDom('#formDiv', domString);
