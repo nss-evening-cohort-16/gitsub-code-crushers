@@ -2,7 +2,7 @@
 
 Gitsub is a site in which you can create repositories, projects, and packages, and share them on the Internet!
 
-[View App](gitsub-codecrushers.netlify.app)
+[View App](https://gitsub-codecrushers.netlify.app)
 
 ## Get Started 
 git clone git@github.com:nss-evening-cohort-16/gitsub-code-crushers.git
@@ -12,15 +12,16 @@ cd gitsub-code-crushers
 The ideal user is someone who is into computer programming!
 
 ## Features 
-View different pages on projects, packages, and repositories.
-Add new projects, packages, and repositories with a form.
-You can pin repositories to stay on your home page.
+- View different pages on projects, packages, and repositories.
+- Add new projects, packages, and repositories with a form.
+- Display pinned repositories.
 
 ## Video Walkthrough of Gitsub
-<!-- We will all add loom link -->
+Overview and Repositories pages: https://www.loom.com/share/fbd343dc899743e1b7f185f663224f42
+[Packages Page] (https://www.loom.com/share/dfd6c3503a3b459793e6219eff5f4bbf)
 
 ## Relevant Links
-- [Check out the deployed site](gitsub-codecrushers.netlify.app)
+- [Check out the deployed site](https://gitsub-codecrushers.netlify.app)
 - [Wireframes](https://docs.google.com/presentation/d/1Bw1z6R-InxbsCdcFbQfylTqSp_CbZRpCkMaiLhLUYT0/edit)
 - [Project Board](https://github.com/nss-evening-cohort-16/gitsub-code-crushers/projects/2)
 
@@ -32,6 +33,6 @@ You can pin repositories to stay on your home page.
 
 
 ## Contributors
-[Madden Purcell](https://github.com/pmpurcell)
-[Austin Parker](https://github.com/austincparker)
-[Nathan Blackman](https://github.com/NathanBlackman)
+- [Madden Purcell](https://github.com/pmpurcell)
+- [Austin Parker](https://github.com/austincparker)
+- [Nathan Blackman](https://github.com/NathanBlackman)
