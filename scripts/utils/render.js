@@ -28,12 +28,14 @@ const projectsCardBuilder = (projectsArr) => {
 // projects form
 
 const overviewCardBuilder = (reposArray) => {
-  const pinnedRepos = reposArray.filter((r) => r.isPinned);
+  const pinnedRepos = reposArray
+    .map((r, index) => ({...r, index}))
+    .filter((r) => r.isPinned);
 
   let domString = `
     <div class="p-3">
       <h2>Pinned</h2>
-      <div class="d-flex flex-wrap">
+      <div class="d-flex flex-wrap" id="pinnedCards">
         ${pinnedRepos
           .map(
             (repo) => `
@@ -41,6 +43,7 @@ const overviewCardBuilder = (reposArray) => {
           <div class="card-body">
             <h5 class="card-title">${repo.name}</h5>
             <p class="card-text">${repo.description}</p>
+            <button class="btn btn-success" id="unpin---${repo.index}">Unpin</button>
             <div class="card-footer text-muted">
               ${repo.language}
             </div>
@@ -54,6 +57,7 @@ const overviewCardBuilder = (reposArray) => {
   `;
 
   renderToDom('#mainContentDiv', domString);
+  document.querySelector('#pinnedCards').addEventListener('click', overviewEvents)
 };
 
 const repoCardBuilder = (repoArray) => {
