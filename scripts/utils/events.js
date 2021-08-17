@@ -1,5 +1,10 @@
-const repoEvents = () => {
+const repoFormSubmit = () => {
   return;
+}
+
+const repoEvents = () => {
+  const formArea = document.querySelector('#formDiv');
+  formArea.addEventListener('submit', repoFormSubmit);
 };
 
 const packageEvents = () => {
