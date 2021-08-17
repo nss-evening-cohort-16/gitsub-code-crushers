@@ -1,3 +1,8 @@
+body {
+    background-color: #0d1117;
+    color: #fff;
+}
+
 .page-content {
     display: flex;
     flex-wrap: wrap;
@@ -12,10 +17,19 @@
     margin-bottom: 0px;
 }
 
-/* .navbar-element {
-    margin-bottom: 0px;
-    width: 100%;
-} */
+.nav-link {
+    text-decoration: none;
+    color: rgba(255,255,255,.55);
+}
+
+.nav-link:hover {
+    color: #c9d1d9;
+}
+
+.nav-link.active {
+    color: #fff;
+}
+
 .main-content-container {
     margin-bottom: 0px;
     width: 100%;
