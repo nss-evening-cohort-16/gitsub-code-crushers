@@ -1,27 +1,75 @@
-const repoFormSubmit = () => {
-  return;
-}
+import { projects } from "./data.js";
+import { projectsCardBuilder } from "./render.js";
+import { repositories } from "./data.js";
+import { repoCardBuilder } from "./render.js";
+import { packages, repositories } from "./data.js";
+import { packageCardBuilder, repoCardBuilder } from "./render.js";
+
+const repoFormSubmit = (event) => {
+  event.preventDefault();
+  const newRepo = {
+    name: document.querySelector("#repoName").value,
+    description: document.querySelector("#repoDesc").value
+  };
+  repositories.push(newRepo);
+  repoCardBuilder(repositories);
+
+};
 
 const repoEvents = () => {
-  const formArea = document.querySelector('#formDiv');
+  const formArea = document.querySelector('#repoForm');
   formArea.addEventListener('submit', repoFormSubmit);
 };
 
 const packageEvents = () => {
-  return;
+  document.querySelector("#packageFormSubmit").addEventListener("submit", packageButton);
 };
+
+const projectsFormSubmit = (event) => {
+    
+  event.preventDefault();
+
+  const newCard = {
+    name: document.querySelector("#boardName").value,
+    description: document.querySelector("#boardDesc").value,
+  };
+  
+  projects.push(newCard);
+  projectsCardBuilder(projects);
+};
+const packageButton = (event) => {
+
+    event.preventDefault();
+
+    const newPackage = {
+      name: document.querySelector("#packageName").value,
+      description: document.querySelector("#packageDescription").value,
+
+    }
+
+    packages.push(newPackage);
+
+    packageCardBuilder(packages);
+
+    document.querySelector("form").reset();
+  }
 
 const projectsEvents = () => {
-  return;
+  const projectForm = document.querySelector("#projectForm");
+  projectForm.addEventListener("submit", projectsFormSubmit);
 };
 
+
+
+
 const overviewEvents = () => {
-    return;
+  return;
 };
 
 export {
   repoEvents,
   packageEvents,
   projectsEvents,
-  overviewEvents
+  overviewEvents,
+  repoFormSubmit
 }

@@ -100,7 +100,7 @@ const repoFormBuilder = () => {
   <h2>
   Create a new repository
   </h2>
-  <form>
+  <form id="repoForm">
     <div class="mb-3">
       <label for="repoName" class="form-label">Repository name</label>
       <input type="text" class="form-control" id="repoName" aria-describedby="nameHelp" required>
@@ -121,7 +121,7 @@ const repoFormBuilder = () => {
 
 const packageFormBuilder = () => {
   const domString = `
-  <form>
+  <form id="packageFormSubmit">
   <div class="mb-3">
     <label for="packageName" class="form-label">Package Name</label>
     <input type="text" class="form-control" id="packageName">
@@ -138,8 +138,8 @@ const packageFormBuilder = () => {
 };
 
 const projectsFormBuilder = () => {
-  const domString = `
-        <form>
+    const domString = `
+        <form id="projectForm">
             <label for="boardName">Project board name</label><br>
             <input id="boardName" type="text"><br>
             <label for="boardDesc">Project board description</label><br>
