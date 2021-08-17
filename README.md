@@ -16,7 +16,7 @@ View different pages on projects, packages, and repositories.
 Add new projects, packages, and repositories with a form.
 You can pin repositories to stay on your home page.
 
-## Video Walkthrough of APP NAME
+## Video Walkthrough of Gitsub
 <!-- We will all add loom link -->
 
 ## Relevant Links
@@ -27,8 +27,8 @@ You can pin repositories to stay on your home page.
 ## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
 <!-- Nathan will add code snippet -->
 
-## Project Screenshots
-<!-- Austin will add screenshot -->
+## Project Screenshot
+![ss-gitsub](https://user-images.githubusercontent.com/70224936/129659154-17ca2dc9-528c-499e-970d-275f22483b2d.png)
 
 
 ## Contributors
