@@ -13,13 +13,13 @@ const packageEvents = () => {
 
 const packageButton = (event) => {
 
-  if (event.target.id === "packageFormSubmit") {
     event.preventDefault();
 
     const newPackage = {
       name: document.querySelector("#packageName").value,
       description: document.querySelector("#packageDescription").value,
-    };
+
+    }
 
     packages.push(newPackage);
 
@@ -27,7 +27,6 @@ const packageButton = (event) => {
 
     document.querySelector("form").reset();
   }
-};
 
 const projectsEvents = () => {
   return;
