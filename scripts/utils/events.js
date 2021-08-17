@@ -1,9 +1,5 @@
-import { projects } from "./data.js";
-import { projectsCardBuilder } from "./render.js";
-import { repositories } from "./data.js";
-import { repoCardBuilder } from "./render.js";
-import { packages, repositories } from "./data.js";
-import { packageCardBuilder, repoCardBuilder } from "./render.js";
+import { projects, packages, repositories } from "./data.js";
+import { projectsCardBuilder, packageCardBuilder, repoCardBuilder } from "./render.js";
 
 const repoFormSubmit = (event) => {
   event.preventDefault();
