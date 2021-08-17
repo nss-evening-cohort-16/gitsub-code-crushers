@@ -1,5 +1,7 @@
 # GITSUB 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2cca5afc-6a8f-4bd4-b3d8-ab9d57ac1b0b/deploy-status)](https://app.netlify.com/sites/gitsub-codecrushers/deploys)
+
 Gitsub is a site in which you can create repositories, projects, and packages, and share them on the Internet!
 
 [View App](gitsub-codecrushers.netlify.app)
