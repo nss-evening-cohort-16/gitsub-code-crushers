@@ -81,7 +81,7 @@ const projects = [
         name: 'Example',
         description: 'No description'
     },
-    
+
     {
         name: 'Test Project',
         description: 'This is a test'

@@ -1,16 +1,16 @@
-import { githubSVG } from "./constants.js";
-import { userObj } from "./data.js";
+import { githubSVG } from './constants.js';
+import { userObj } from './data.js';
 
 const renderToDom = (divId, textToPrint) => {
-    const selectedDiv = document.querySelector(divId);
-    selectedDiv.innerHTML = textToPrint;
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = textToPrint;
 };
 
 /* Card Builders */
 const projectsCardBuilder = (projectsArr)=> {
     let domString = ""
     projectsArr.forEach(project => {
-        domString += `<div class="card">
+        domString += `<div class="card card bkg-dark gh-border-dark text-white">
         <div class="card-header">
          Projects
         </div>
@@ -19,23 +19,24 @@ const projectsCardBuilder = (projectsArr)=> {
           <li class="list-group-item">${project.description}</li>
         </ul>
      </div>`;
-    });
+  });
 
-  renderToDom("#mainContentDiv", domString);
+  renderToDom('#mainContentDiv', domString);
 };
 
 // projects form
 
-
 const overviewCardBuilder = (reposArray) => {
-  const pinnedRepos = reposArray.filter(r => r.isPinned);
+  const pinnedRepos = reposArray.filter((r) => r.isPinned);
 
   let domString = `
     <div class="p-3">
       <h2>Pinned</h2>
       <div class="d-flex flex-wrap">
-        ${pinnedRepos.map(repo => `
-        <div class="card" style="width: 18rem;">
+        ${pinnedRepos
+          .map(
+            (repo) => `
+        <div class="card bkg-dark gh-border-dark text-white m-1" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${repo.name}</h5>
             <p class="card-text">${repo.description}</p>
@@ -44,20 +45,22 @@ const overviewCardBuilder = (reposArray) => {
             </div>
           </div>
         </div>
-        `).join(" ")}
+        `
+          )
+          .join(' ')}
       </div>
     </div>
   `;
 
-  renderToDom("#mainContentDiv", domString);
+  renderToDom('#mainContentDiv', domString);
 };
 
 const repoCardBuilder = (repoArray) => {
   let domString = `<div class="d-flex flex-wrap">`;
   repoArray.forEach((repo) => {
     domString += `
-    <div class="card border-dark m-3" style="max-width: 18rem;">
-      <div class="card-body text-dark">
+    <div class="card bkg-dark gh-border-dark text-white m-3" style="max-width: 18rem;">
+      <div class="card-body">
         <h5 class="card-title">${repo.name}</h5>
         <p class="card-text">${repo.description}</p>
         <div class="repo-languages">
@@ -66,23 +69,21 @@ const repoCardBuilder = (repoArray) => {
       </div>
 
     </div>
-  `
+  `;
   });
     domString += `</div>`
     renderToDom('#mainContentDiv', domString);
 };
 
 const packageCardBuilder = (array) => {
-  let domString = `<div class="p-3 d-flex flex-wrap">`
-  array.forEach(arrayItem => {
-    domString += `<div class="card" style="width: 18rem;">
+  let domString = '<div class="p-3 d-flex flex-wrap">';
+  array.forEach((arrayItem) => {
+    domString += `<div class="card text-white bkg-dark gh-border-dark" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">${arrayItem.name}</h5>
       <p class="card-text">${arrayItem.description}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
-  </div>`
-    
+  </div>`;
   });
 
   domString += "</div>"
@@ -92,9 +93,9 @@ const packageCardBuilder = (array) => {
 };
 
 /* Form Builders */
-const overviewFormBuilder= () => {
-    return;
-}
+const overviewFormBuilder = () => {
+  return;
+};
 
 const repoFormBuilder = () => {
   const domString = `
@@ -117,15 +118,14 @@ const repoFormBuilder = () => {
       <label for="repoLang" class="form-label">Languages</label>
       <input type="text" class="form-control" id="repoLang">
   </div>
-  
+
       <button type="submit" class="btn btn-success">Create repository</button>
   </form>
   </div>
   `;
 
   renderToDom('#formDiv', domString);
-    
-}
+};
 
 const packageFormBuilder = () => {
   const domString = `
@@ -140,9 +140,9 @@ const packageFormBuilder = () => {
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-  `
+  `;
 
-  renderToDom("#formDiv", domString);
+  renderToDom('#formDiv', domString);
 };
 
 const projectsFormBuilder = () => {
@@ -156,16 +156,14 @@ const projectsFormBuilder = () => {
         </form>
     `;
 
-    renderToDom("#formDiv", domString);
+  renderToDom('#formDiv', domString);
 };
-
-
 
 // Builds Footer
 
 const footerBuilder = () => {
   const domString = `
-    <ul class="nav justify-content-center">
+    <ul class="footer-content nav justify-content-center">
       <li class="nav-item">
         <a class="nav-link" href="/">© 2021 GitHub, Inc.</a>
       </li>
@@ -184,9 +182,11 @@ const footerBuilder = () => {
       <li class="nav-item">
         <a class="nav-link" target="_blank" href="https://docs.github.com/">Docs</a>
       </li>
-      <li class="nav-item">
-        ${githubSVG}
-      </li>
+    </ul>
+    <div class="github-svg">
+      ${githubSVG}
+    </div>
+    <ul class="footer-content nav justify-content-center">
       <li class="nav-item">
         <a class="nav-link" target="_blank" href="https://support.github.com/">Contact GitHub</a>
       </li>
@@ -209,43 +209,68 @@ const footerBuilder = () => {
   `;
 
   renderToDom('#footerContainer', domString);
-}
+};
 
+{
+  /* */
+}
 const profileBuilder = () => {
-    const domString = `
-    <div class="card" style="width: 18rem;">
-    <img src="${userObj.profileImage}" class="card-img-top" alt="Profile Image">
+  const domString = `
+    <div id="smallUserNameDiv" class="small-profile-stuff hide-name w-100">
+      <div class='small-profile-image-container'>
+        <div
+          class='small-profile-image'
+          style="background-image: url('${userObj.profileImage}')">
+        </div>
+      </div>
+      <h5 class="small-username-text">${userObj.username}</h5>
+    </div>
+    <div class="main-github-svg">
+      ${githubSVG}
+    </div>
+    <div class="card text-white bkg-dark">
+    <div>
+      <div class='profile-image-container card-img-top'>
+        <div
+        class='profile-image'
+        style="background-image: url('${userObj.profileImage}')">
+        </div>
+      </div>
+    </div>
     <div class="card-body">
-      <h5 class="card-title">${userObj.name}</h5>
+      <h5 id="usernameDiv" class="card-title">${userObj.name}</h5>
       <h4>${userObj.username}</h4>
       <p class="card-text">${userObj.description}</p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Followers: ${userObj.followers}</li>
-      <li class="list-group-item">Following: ${userObj.following}</li>
-      <li class="list-group-item">Starred: ${userObj.starred}</li>
-      <li class="list-group-item">${userObj.location}</li>
+      <li class="list-group-item text-white bkg-dark gh-border-dark">Followers: ${userObj.followers}</li>
+      <li class="list-group-item text-white bkg-dark gh-border-dark">Following: ${userObj.following}</li>
+      <li class="list-group-item text-white bkg-dark gh-border-dark">Starred: ${userObj.starred}</li>
+      <li class="list-group-item text-white bkg-dark gh-border-dark">${userObj.location}</li>
     </ul>
     <div class="card-body">
       <a href="mailto:${userObj.email}" target="_blank" class="card-link">Email</a>
       <a href="${userObj.website}" target="_blank" class="card-link">Website</a>
-      <a href="https://www.twitter.com/${userObj.twitter}" target="_blank" class="card-link">Twitter: ${userObj.twitter}</a>
+      <a href="https://www.twitter.com/${userObj.twitter}" target="_blank" class="card-link">Twitter</a>
     </div>
-  </div>`
+  </div>`;
 
+  renderToDom('#profileDiv', domString);
 
-  renderToDom("#profileDiv", domString);
-}
+  const smallUserNameDiv = document.querySelector('#smallUserNameDiv');
 
-export {
-    overviewCardBuilder,
-    packageCardBuilder,
-    repoCardBuilder,
-    overviewFormBuilder,
-    repoFormBuilder,
-    packageFormBuilder,
-    projectsFormBuilder,
-    projectsCardBuilder,
-    footerBuilder,
-    profileBuilder,
+  const myScrollFunc = function () {
+    const usernameDiv = document.querySelector('#usernameDiv');
+    const usernameLocation = usernameDiv.getBoundingClientRect().top;
+
+    if (usernameLocation <= 0) {
+      smallUserNameDiv.className = 'small-profile-stuff show-name';
+    } else {
+      smallUserNameDiv.className = 'small-profile-stuff hide-name';
+    }
+  };
+
+  window.addEventListener('scroll', myScrollFunc);
 };
+
+export { overviewCardBuilder, packageCardBuilder, repoCardBuilder, overviewFormBuilder, repoFormBuilder, packageFormBuilder, projectsFormBuilder, projectsCardBuilder, footerBuilder, profileBuilder };
