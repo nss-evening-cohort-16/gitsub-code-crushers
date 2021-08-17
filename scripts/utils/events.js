@@ -2,7 +2,8 @@ import { projects } from "./data.js";
 import { projectsCardBuilder } from "./render.js";
 
 const repoEvents = () => {
-  return;
+  const formArea = document.querySelector('#formDiv');
+  formArea.addEventListener('submit', repoFormSubmit);
 };
 
 const packageEvents = () => {
@@ -11,7 +12,6 @@ const packageEvents = () => {
 
 const projectsFormSubmit = (event) => {
     
-  console.log("test");
   event.preventDefault();
 
   const newCard = {
