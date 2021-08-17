@@ -7,10 +7,10 @@ const renderToDom = (divId, textToPrint) => {
 };
 
 /* Card Builders */
-const projectsCardBuilder = (projectsArr) => {
-  let domString = '';
-  projectsArr.forEach((project) => {
-    domString += `<div class="card bkg-dark gh-border-dark text-white">
+const projectsCardBuilder = (projectsArr)=> {
+    let domString = ""
+    projectsArr.forEach(project => {
+        domString += `<div class="card card bkg-dark gh-border-dark text-white">
         <div class="card-header">
          Projects
         </div>
@@ -56,7 +56,7 @@ const overviewCardBuilder = (reposArray) => {
 };
 
 const repoCardBuilder = (repoArray) => {
-  let domString = '';
+  let domString = `<div class="d-flex flex-wrap">`;
   repoArray.forEach((repo) => {
     domString += `
     <div class="card bkg-dark gh-border-dark text-white mb-3" style="max-width: 18rem;">
@@ -71,7 +71,8 @@ const repoCardBuilder = (repoArray) => {
     </div>
   `;
   });
-  renderToDom('#mainContentDiv', domString);
+    domString += `</div>`
+    renderToDom('#mainContentDiv', domString);
 };
 
 const packageCardBuilder = (array) => {
@@ -99,6 +100,7 @@ const overviewFormBuilder = () => {
 
 const repoFormBuilder = () => {
   const domString = `
+  <div class="m-3">
   <h2>
   Create a new repository
   </h2>
@@ -113,9 +115,14 @@ const repoFormBuilder = () => {
       <span class="greyed">(optional)</span>
       <input type="text" class="form-control" id="repoDesc">
   </div>
+  <div class="mb-3">
+      <label for="repoLang" class="form-label">Languages</label>
+      <input type="text" class="form-control" id="repoLang">
+  </div>
 
       <button type="submit" class="btn btn-success">Create repository</button>
   </form>
+  </div>
   `;
 
   renderToDom('#formDiv', domString);

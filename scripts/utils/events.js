@@ -9,7 +9,7 @@ const repoFormSubmit = (event) => {
   };
   repositories.push(newRepo);
   repoCardBuilder(repositories);
-
+  document.querySelector('#repoForm').reset();
 };
 
 const repoEvents = () => {
