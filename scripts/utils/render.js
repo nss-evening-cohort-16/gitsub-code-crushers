@@ -139,7 +139,7 @@ const packageFormBuilder = () => {
 
 const projectsFormBuilder = () => {
     const domString = `
-        <form>
+        <form id="projectForm">
             <label for="boardName">Project board name</label><br>
             <input id="boardName" type="text"><br>
             <label for="boardDesc">Project board description</label><br>
