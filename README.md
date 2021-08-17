@@ -21,6 +21,7 @@ The ideal user is someone who is into computer programming!
 ## Video Walkthrough of Gitsub
 Overview and Repositories pages: https://www.loom.com/share/fbd343dc899743e1b7f185f663224f42
 Projects page: https://www.loom.com/share/b01bb911452b4edb98804bd04ba821c5
+[Packages Page] (https://www.loom.com/share/dfd6c3503a3b459793e6219eff5f4bbf)
 
 ## Relevant Links
 - [Check out the deployed site](https://gitsub-codecrushers.netlify.app)
