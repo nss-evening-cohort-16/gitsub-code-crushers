@@ -7,10 +7,10 @@ const renderToDom = (divId, textToPrint) => {
 };
 
 /* Card Builders */
-const projectsCardBuilder = (projectsArr)=> {
-    let domString = ""
-    projectsArr.forEach(project => {
-        domString += `<div class="card card bkg-dark gh-border-dark text-white">
+const projectsCardBuilder = (projectsArr) => {
+  let domString = '';
+  projectsArr.forEach((project) => {
+    domString += `<div class="card card bkg-dark gh-border-dark text-white">
         <div class="card-header">
          Projects
         </div>
@@ -71,8 +71,8 @@ const repoCardBuilder = (repoArray) => {
     </div>
   `;
   });
-    domString += `</div>`
-    renderToDom('#mainContentDiv', domString);
+  domString += `</div>`;
+  renderToDom('#mainContentDiv', domString);
 };
 
 const packageCardBuilder = (array) => {
@@ -86,15 +86,29 @@ const packageCardBuilder = (array) => {
   </div>`;
   });
 
-  domString += "</div>"
+  domString += '</div>';
 
-  renderToDom("#mainContentDiv", domString);
-
+  renderToDom('#mainContentDiv', domString);
 };
 
 /* Form Builders */
-const overviewFormBuilder = () => {
-  return;
+const overviewFormBuilder = (repoArray) => {
+  const domString = `
+  <form>
+    <div class="mb-3">
+      <label for="pinRepoSelect" class="form-label"><h2>Pin a Repo</h2></label>
+      <select required id="pinRepoSelect" class="form-control form-select form-select-lg" aria-label="Pin Repo Select">
+        <option value="" selected>Select a Repo</option>
+        ${repoArray
+          .map((r, index) => ({ ...r, index }))
+          .filter((r) => !r.isPinned)
+          .map((r) => `<option value="${r.index}">${r.name} - ${r.index}</option>`)}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">Pin Repo</button>
+  </form>
+  `;
+  renderToDom('#formDiv', domString);
 };
 
 const repoFormBuilder = () => {
@@ -146,7 +160,7 @@ const packageFormBuilder = () => {
 };
 
 const projectsFormBuilder = () => {
-    const domString = `
+  const domString = `
         <form id="projectForm">
             <label for="boardName">Project board name</label><br>
             <input id="boardName" type="text"><br>
