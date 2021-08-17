@@ -1,9 +1,19 @@
-import { packages } from "./data.js";
-import { packageCardBuilder } from "./render.js";
+import { packages, repositories } from "./data.js";
+import { packageCardBuilder, repoCardBuilder } from "./render.js";
 
+const repoFormSubmit = (event) => {
+  event.preventDefault();
+  const newRepo = {
+    name: document.querySelector("#repoName").value,
+    description: document.querySelector("#repoDesc").value
+  };
+  repositories.push(newRepo);
+  repoCardBuilder(repositories);
+
+};
 
 const repoEvents = () => {
-  const formArea = document.querySelector('#formDiv');
+  const formArea = document.querySelector('#repoForm');
   formArea.addEventListener('submit', repoFormSubmit);
 };
 
@@ -36,4 +46,10 @@ const overviewEvents = () => {
   return;
 };
 
-export { repoEvents, packageEvents, projectsEvents, overviewEvents };
+export {
+  repoEvents,
+  packageEvents,
+  projectsEvents,
+  overviewEvents,
+  repoFormSubmit
+}

@@ -99,7 +99,7 @@ const repoFormBuilder = () => {
   <h2>
   Create a new repository
   </h2>
-  <form>
+  <form id="repoForm">
     <div class="mb-3">
       <label for="repoName" class="form-label">Repository name</label>
       <input type="text" class="form-control" id="repoName" aria-describedby="nameHelp" required>
