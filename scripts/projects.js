@@ -1,5 +1,7 @@
 import { projects } from "./utils/data.js";
+import { projectsEvents } from "./utils/events.js";
 import { footerBuilder, profileBuilder, projectsCardBuilder, projectsFormBuilder } from "./utils/render.js";
+
 
 
 const init = () => {
@@ -7,6 +9,7 @@ const init = () => {
     profileBuilder();
     projectsCardBuilder(projects);
     projectsFormBuilder();
+    projectsEvents();
 };
 
 init();
