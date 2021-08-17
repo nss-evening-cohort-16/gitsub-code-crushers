@@ -10,7 +10,7 @@ const renderToDom = (divId, textToPrint) => {
 const projectsCardBuilder = (projectsArr)=> {
     let domString = ""
     projectsArr.forEach(project => {
-        domString += `<div class="card" style="width: 18rem;">
+        domString += `<div class="card">
         <div class="card-header">
          Projects
         </div>
