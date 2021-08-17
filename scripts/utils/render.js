@@ -1,5 +1,6 @@
 import { githubSVG } from './constants.js';
 import { userObj } from './data.js';
+import { overviewEvents } from './events.js';
 
 const renderToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
@@ -94,7 +95,7 @@ const packageCardBuilder = (array) => {
 /* Form Builders */
 const overviewFormBuilder = (repoArray) => {
   const domString = `
-  <form>
+  <form id="pinRepoForm">
     <div class="mb-3">
       <label for="pinRepoSelect" class="form-label"><h2>Pin a Repo</h2></label>
       <select required id="pinRepoSelect" class="form-control form-select form-select-lg" aria-label="Pin Repo Select">
@@ -109,6 +110,7 @@ const overviewFormBuilder = (repoArray) => {
   </form>
   `;
   renderToDom('#formDiv', domString);
+  document.querySelector('#pinRepoForm').addEventListener('submit', overviewEvents)
 };
 
 const repoFormBuilder = () => {
