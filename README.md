@@ -1,5 +1,7 @@
 # GITSUB 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2cca5afc-6a8f-4bd4-b3d8-ab9d57ac1b0b/deploy-status)](https://app.netlify.com/sites/gitsub-codecrushers/deploys)
+
 Gitsub is a site in which you can create repositories, projects, and packages, and share them on the Internet!
 
 [View App](https://gitsub-codecrushers.netlify.app)
@@ -18,6 +20,7 @@ The ideal user is someone who is into computer programming!
 
 ## Video Walkthrough of Gitsub
 Overview and Repositories pages: https://www.loom.com/share/fbd343dc899743e1b7f185f663224f42
+Projects page: https://www.loom.com/share/b01bb911452b4edb98804bd04ba821c5
 [Packages Page] (https://www.loom.com/share/dfd6c3503a3b459793e6219eff5f4bbf)
 
 ## Relevant Links
