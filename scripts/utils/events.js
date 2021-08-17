@@ -33,7 +33,7 @@ const projectsFormSubmit = (event) => {
   
   projects.push(newCard);
   projectsCardBuilder(projects);
-  document.querySelector("#projectForm");
+  document.querySelector("#projectForm").reset();
 };
 
 
