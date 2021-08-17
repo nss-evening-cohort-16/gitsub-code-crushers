@@ -26,12 +26,15 @@ body {
 }
 
 .show-name {
+height: 50px;
+width: 100%;
+text-align: center;
   display: flex;
   background-color: #0d1117;
   pointer-events: none;
   position: fixed;
   top: 0;
-  transition: 0.2s;
+  transition: 0.5s;
   width: 233px;
   word-break: break-all;
   z-index: 90;

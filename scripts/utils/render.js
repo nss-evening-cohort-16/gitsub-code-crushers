@@ -184,7 +184,7 @@ const footerBuilder = () => {
 
 const profileBuilder = () => {
     const domString = `
-    <div id="smallUserNameDiv" class="hide-name bg-dark"><h5 class="card-title">${userObj.name}</h5></div>
+    <div id="smallUserNameDiv" class="hide-name bg-dark"><h5 class="card-title w-100">${userObj.name}</h5></div>
     <div class="card text-white bg-dark">
     <img src="${userObj.profileImage}" class="card-img-top" alt="Profile Image">
     <div class="card-body">
