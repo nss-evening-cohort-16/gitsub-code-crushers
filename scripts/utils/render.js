@@ -10,7 +10,7 @@ const renderToDom = (divId, textToPrint) => {
 const projectsCardBuilder = (projectsArr)=> {
     let domString = ""
     projectsArr.forEach(project => {
-        domString += `<div class="card bg-dark text-white" style="width: 18rem;">
+        domString += `<div class="card bkg-dark gh-border-dark text-white" style="width: 18rem;">
         <div class="card-header">
          Projects
         </div>
@@ -35,7 +35,7 @@ const overviewCardBuilder = (reposArray) => {
       <h2>Pinned</h2>
       <div class="d-flex flex-wrap">
         ${pinnedRepos.map(repo => `
-        <div class="card bg-dark text-white" style="width: 18rem;">
+        <div class="card bkg-dark gh-border-dark text-white m-1" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${repo.name}</h5>
             <p class="card-text">${repo.description}</p>
@@ -56,7 +56,7 @@ const repoCardBuilder = (repoArray) => {
   let domString = "";
   repoArray.forEach((repo) => {
     domString += `
-    <div class="card bg-dark border-dark text-white mb-3" style="max-width: 18rem;">
+    <div class="card bkg-dark gh-border-dark text-white mb-3" style="max-width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">${repo.name}</h5>
         <p class="card-text">${repo.description}</p>
@@ -74,7 +74,7 @@ const repoCardBuilder = (repoArray) => {
 const packageCardBuilder = (array) => {
   let domString = " "
   array.forEach(arrayItem => {
-    domString += `<div class="card text-white bg-dark" style="width: 18rem;">
+    domString += `<div class="card text-white bkg-dark gh-border-dark" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">${arrayItem.name}</h5>
@@ -110,13 +110,13 @@ const repoFormBuilder = () => {
       <span class="greyed">(optional)</span>
       <input type="text" class="form-control" id="repoDesc">
   </div>
-  
+
       <button type="submit" class="btn btn-success">Create repository</button>
   </form>
   `;
 
   renderToDom('#formDiv', domString);
-    
+
 }
 
 const packageFormBuilder = () => {
@@ -157,7 +157,7 @@ const projectsFormBuilder = () => {
 
 const footerBuilder = () => {
   const domString = `
-    <ul class="nav justify-content-center">
+    <ul class="footer-content nav justify-content-center">
       <li class="nav-item">
         <a class="nav-link" href="/">© 2021 GitHub, Inc.</a>
       </li>
@@ -176,9 +176,11 @@ const footerBuilder = () => {
       <li class="nav-item">
         <a class="nav-link" target="_blank" href="https://docs.github.com/">Docs</a>
       </li>
-      <li class="nav-item">
-        ${githubSVG}
-      </li>
+    </ul>
+    <div class="github-svg">
+      ${githubSVG}
+    </div>
+    <ul class="footer-content nav justify-content-center">
       <li class="nav-item">
         <a class="nav-link" target="_blank" href="https://support.github.com/">Contact GitHub</a>
       </li>
@@ -205,8 +207,10 @@ const footerBuilder = () => {
 
 const profileBuilder = () => {
     const domString = `
-    <div id="smallUserNameDiv" class="hide-name bg-dark"><h5 class="card-title w-100">${userObj.name}</h5></div>
-    <div class="card text-white bg-dark">
+    <div id="smallUserNameDiv" class="hide-name bkg-dark
+"><h5 class="card-title w-100">${userObj.name}</h5></div>
+    <div class="card text-white bkg-dark
+">
     <img src="${userObj.profileImage}" class="card-img-top" alt="Profile Image">
     <div class="card-body">
       <h5 id="usernameDiv" class="card-title">${userObj.name}</h5>
