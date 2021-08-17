@@ -20,9 +20,7 @@ const projectsCardBuilder = (projectsArr)=> {
         </ul>
      </div>`;
   });
-
-  // Projects
-  //<li class="list-group-item">${project.description}</li>
+  
   renderToDom('#mainContentDiv', domString);
 };
 
