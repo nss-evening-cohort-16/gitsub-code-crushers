@@ -1,16 +1,16 @@
-import { githubSVG } from "./constants.js";
-import { userObj } from "./data.js";
+import { githubSVG } from './constants.js';
+import { userObj } from './data.js';
 
 const renderToDom = (divId, textToPrint) => {
-    const selectedDiv = document.querySelector(divId);
-    selectedDiv.innerHTML = textToPrint;
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = textToPrint;
 };
 
 /* Card Builders */
-const projectsCardBuilder = (projectsArr)=> {
-    let domString = ""
-    projectsArr.forEach(project => {
-        domString += `<div class="card bkg-dark gh-border-dark text-white" style="width: 18rem;">
+const projectsCardBuilder = (projectsArr) => {
+  let domString = '';
+  projectsArr.forEach((project) => {
+    domString += `<div class="card bkg-dark gh-border-dark text-white" style="width: 18rem;">
         <div class="card-header">
          Projects
         </div>
@@ -19,22 +19,23 @@ const projectsCardBuilder = (projectsArr)=> {
           <li class="list-group-item">${project.description}</li>
         </ul>
      </div>`;
-    });
+  });
 
-  renderToDom("#mainContentDiv", domString);
+  renderToDom('#mainContentDiv', domString);
 };
 
 // projects form
 
-
 const overviewCardBuilder = (reposArray) => {
-  const pinnedRepos = reposArray.filter(r => r.isPinned);
+  const pinnedRepos = reposArray.filter((r) => r.isPinned);
 
   let domString = `
     <div class="p-3">
       <h2>Pinned</h2>
       <div class="d-flex flex-wrap">
-        ${pinnedRepos.map(repo => `
+        ${pinnedRepos
+          .map(
+            (repo) => `
         <div class="card bkg-dark gh-border-dark text-white m-1" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${repo.name}</h5>
@@ -44,16 +45,18 @@ const overviewCardBuilder = (reposArray) => {
             </div>
           </div>
         </div>
-        `).join(" ")}
+        `
+          )
+          .join(' ')}
       </div>
     </div>
   `;
 
-  renderToDom("#mainContentDiv", domString);
+  renderToDom('#mainContentDiv', domString);
 };
 
 const repoCardBuilder = (repoArray) => {
-  let domString = "";
+  let domString = '';
   repoArray.forEach((repo) => {
     domString += `
     <div class="card bkg-dark gh-border-dark text-white mb-3" style="max-width: 18rem;">
@@ -66,14 +69,14 @@ const repoCardBuilder = (repoArray) => {
       </div>
 
     </div>
-  `
+  `;
   });
-    renderToDom('#mainContentDiv', domString);
+  renderToDom('#mainContentDiv', domString);
 };
 
 const packageCardBuilder = (array) => {
-  let domString = " "
-  array.forEach(arrayItem => {
+  let domString = ' ';
+  array.forEach((arrayItem) => {
     domString += `<div class="card text-white bkg-dark gh-border-dark" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
@@ -81,18 +84,16 @@ const packageCardBuilder = (array) => {
       <p class="card-text">${arrayItem.description}</p>
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
-  </div>`
-
+  </div>`;
   });
 
-  renderToDom("#mainContentDiv", domString);
-
+  renderToDom('#mainContentDiv', domString);
 };
 
 /* Form Builders */
-const overviewFormBuilder= () => {
-    return;
-}
+const overviewFormBuilder = () => {
+  return;
+};
 
 const repoFormBuilder = () => {
   const domString = `
@@ -116,8 +117,7 @@ const repoFormBuilder = () => {
   `;
 
   renderToDom('#formDiv', domString);
-
-}
+};
 
 const packageFormBuilder = () => {
   const domString = `
@@ -132,13 +132,13 @@ const packageFormBuilder = () => {
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-  `
+  `;
 
-  renderToDom("#formDiv", domString);
+  renderToDom('#formDiv', domString);
 };
 
 const projectsFormBuilder = () => {
-    const domString = `
+  const domString = `
         <form>
             <label for="boardName">Project board name</label><br>
             <input id="boardName" type="text"><br>
@@ -148,10 +148,8 @@ const projectsFormBuilder = () => {
         </form>
     `;
 
-    renderToDom("#formDiv", domString);
+  renderToDom('#formDiv', domString);
 };
-
-
 
 // Builds Footer
 
@@ -203,15 +201,34 @@ const footerBuilder = () => {
   `;
 
   renderToDom('#footerContainer', domString);
-}
+};
 
+{
+  /* */
+}
 const profileBuilder = () => {
-    const domString = `
-    <div id="smallUserNameDiv" class="hide-name bkg-dark
-"><h5 class="card-title w-100">${userObj.name}</h5></div>
-    <div class="card text-white bkg-dark
-">
-    <img src="${userObj.profileImage}" class="card-img-top" alt="Profile Image">
+  const domString = `
+    <div id="smallUserNameDiv" class="small-profile-stuff hide-name w-100">
+      <div class='small-profile-image-container'>
+        <div
+          class='small-profile-image'
+          style="background-image: url('${userObj.profileImage}')">
+        </div>
+      </div>
+      <h5 class="small-username-text">${userObj.username}</h5>
+    </div>
+    <div class="main-github-svg">
+      ${githubSVG}
+    </div>
+    <div class="card text-white bkg-dark">
+    <div>
+      <div class='profile-image-container card-img-top'>
+        <div
+        class='profile-image'
+        style="background-image: url('${userObj.profileImage}')">
+        </div>
+      </div>
+    </div>
     <div class="card-body">
       <h5 id="usernameDiv" class="card-title">${userObj.name}</h5>
       <h4>${userObj.username}</h4>
@@ -228,38 +245,24 @@ const profileBuilder = () => {
       <a href="${userObj.website}" target="_blank" class="card-link">Website</a>
       <a href="https://www.twitter.com/${userObj.twitter}" target="_blank" class="card-link">Twitter: ${userObj.twitter}</a>
     </div>
-  </div>`
+  </div>`;
 
+  renderToDom('#profileDiv', domString);
 
-  renderToDom("#profileDiv", domString);
+  const smallUserNameDiv = document.querySelector('#smallUserNameDiv');
 
-  const smallUserNameDiv = document.querySelector("#smallUserNameDiv");
+  const myScrollFunc = function () {
+    const usernameDiv = document.querySelector('#usernameDiv');
+    const usernameLocation = usernameDiv.getBoundingClientRect().top;
 
-  const myScrollFunc = function() {
-    const usernameDiv = document.querySelector("#usernameDiv");
-    const y = window.scrollY;
-    const usernameLocation = usernameDiv.getBoundingClientRect().top
-
-    console.log(usernameLocation <= 0);
     if (usernameLocation <= 0) {
-      smallUserNameDiv.className = "show-name"
+      smallUserNameDiv.className = 'small-profile-stuff show-name';
     } else {
-      smallUserNameDiv.className = "hide-name"
+      smallUserNameDiv.className = 'small-profile-stuff hide-name';
     }
   };
 
-  window.addEventListener("scroll", myScrollFunc);
-}
-
-export {
-    overviewCardBuilder,
-    packageCardBuilder,
-    repoCardBuilder,
-    overviewFormBuilder,
-    repoFormBuilder,
-    packageFormBuilder,
-    projectsFormBuilder,
-    projectsCardBuilder,
-    footerBuilder,
-    profileBuilder,
+  window.addEventListener('scroll', myScrollFunc);
 };
+
+export { overviewCardBuilder, packageCardBuilder, repoCardBuilder, overviewFormBuilder, repoFormBuilder, packageFormBuilder, projectsFormBuilder, projectsCardBuilder, footerBuilder, profileBuilder };
