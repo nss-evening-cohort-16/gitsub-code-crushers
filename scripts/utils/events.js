@@ -23,7 +23,7 @@ const packageEvents = () => {
 };
 
 const projectsFormSubmit = (event) => {
-    
+
   event.preventDefault();
 
   const newCard = {
@@ -61,6 +61,11 @@ const overviewEvents = (e) => {
   if(e.target.id === 'pinRepoForm'){
     const pinIndex = document.querySelector('#pinRepoSelect').value;
     repositories[pinIndex].isPinned = true;
+    overviewCardBuilder(repositories);
+    overviewFormBuilder(repositories);
+  } else if (e.target.id.includes('unpinRepo')){
+    const unpinIndex = e.target.id.split("---")[1];
+    repositories[unpinIndex].isPinned = false;
     overviewCardBuilder(repositories);
     overviewFormBuilder(repositories);
   }
