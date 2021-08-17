@@ -73,10 +73,9 @@ const repoCardBuilder = (repoArray) => {
 };
 
 const packageCardBuilder = (array) => {
-  let domString = " "
+  let domString = `<div class="p-3 d-flex flex-wrap">`
   array.forEach(arrayItem => {
     domString += `<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">${arrayItem.name}</h5>
       <p class="card-text">${arrayItem.description}</p>
@@ -85,6 +84,8 @@ const packageCardBuilder = (array) => {
   </div>`
     
   });
+
+  domString += "</div>"
 
   renderToDom("#mainContentDiv", domString);
 
