@@ -33,7 +33,10 @@ const projectsFormSubmit = (event) => {
 
   projects.push(newCard);
   projectsCardBuilder(projects);
+  document.querySelector("#projectForm");
 };
+
+
 const packageButton = (event) => {
 
     event.preventDefault();
