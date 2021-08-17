@@ -59,7 +59,7 @@ const repoCardBuilder = (repoArray) => {
   let domString = `<div class="d-flex flex-wrap">`;
   repoArray.forEach((repo) => {
     domString += `
-    <div class="card bkg-dark gh-border-dark text-white mb-3" style="max-width: 18rem;">
+    <div class="card bkg-dark gh-border-dark text-white m-3" style="max-width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">${repo.name}</h5>
         <p class="card-text">${repo.description}</p>
@@ -82,7 +82,6 @@ const packageCardBuilder = (array) => {
     <div class="card-body">
       <h5 class="card-title">${arrayItem.name}</h5>
       <p class="card-text">${arrayItem.description}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>`;
   });
