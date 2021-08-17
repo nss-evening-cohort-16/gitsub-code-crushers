@@ -1,8 +1,10 @@
 import { packages } from "./data.js";
 import { packageCardBuilder } from "./render.js";
 
+
 const repoEvents = () => {
-  return;
+  const formArea = document.querySelector('#formDiv');
+  formArea.addEventListener('submit', repoFormSubmit);
 };
 
 const packageEvents = () => {
@@ -10,11 +12,9 @@ const packageEvents = () => {
 };
 
 const packageButton = (event) => {
-  console.warn(event.target.id);
 
   if (event.target.id === "packageFormSubmit") {
     event.preventDefault();
-    console.log("Form submitted");
 
     const newPackage = {
       name: document.querySelector("#packageName").value,
@@ -24,8 +24,8 @@ const packageButton = (event) => {
     packages.push(newPackage);
 
     packageCardBuilder(packages);
-  } else {
-    console.log("Nope!")
+
+    document.querySelector("form").reset();
   }
 };
 
