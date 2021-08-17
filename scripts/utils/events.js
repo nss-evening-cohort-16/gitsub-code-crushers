@@ -11,21 +11,21 @@ const packageEvents = () => {
 
 const projectsFormSubmit = (event) => {
     
-    console.log("test");
-    event.preventDefault();
+  console.log("test");
+  event.preventDefault();
 
-    const newCard = {
-      name: document.querySelector("#boardName").value,
-      description: document.querySelector("#boardDesc").value,
-    };
-    
-    projects.push(newCard);
-    projectsCardBuilder(projects);
+  const newCard = {
+    name: document.querySelector("#boardName").value,
+    description: document.querySelector("#boardDesc").value,
+  };
+  
+  projects.push(newCard);
+  projectsCardBuilder(projects);
 };
 
 const projectsEvents = () => {
-    const projectForm = document.querySelector("#projectForm");
-    projectForm.addEventListener("submit", projectsFormSubmit);
+  const projectForm = document.querySelector("#projectForm");
+  projectForm.addEventListener("submit", projectsFormSubmit);
 };
 
 
