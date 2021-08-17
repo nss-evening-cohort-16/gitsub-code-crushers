@@ -121,7 +121,7 @@ const repoFormBuilder = () => {
 
 const packageFormBuilder = () => {
   const domString = `
-  <form>
+  <form id="packageFormSubmit">
   <div class="mb-3">
     <label for="packageName" class="form-label">Package Name</label>
     <input type="text" class="form-control" id="packageName">

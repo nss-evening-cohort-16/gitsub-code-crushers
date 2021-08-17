@@ -2,6 +2,8 @@ import { projects } from "./data.js";
 import { projectsCardBuilder } from "./render.js";
 import { repositories } from "./data.js";
 import { repoCardBuilder } from "./render.js";
+import { packages, repositories } from "./data.js";
+import { packageCardBuilder, repoCardBuilder } from "./render.js";
 
 const repoFormSubmit = (event) => {
   event.preventDefault();
@@ -20,7 +22,7 @@ const repoEvents = () => {
 };
 
 const packageEvents = () => {
-  return;
+  document.querySelector("#packageFormSubmit").addEventListener("submit", packageButton);
 };
 
 const projectsFormSubmit = (event) => {
@@ -35,6 +37,22 @@ const projectsFormSubmit = (event) => {
   projects.push(newCard);
   projectsCardBuilder(projects);
 };
+const packageButton = (event) => {
+
+    event.preventDefault();
+
+    const newPackage = {
+      name: document.querySelector("#packageName").value,
+      description: document.querySelector("#packageDescription").value,
+
+    }
+
+    packages.push(newPackage);
+
+    packageCardBuilder(packages);
+
+    document.querySelector("form").reset();
+  }
 
 const projectsEvents = () => {
   const projectForm = document.querySelector("#projectForm");
@@ -45,7 +63,7 @@ const projectsEvents = () => {
 
 
 const overviewEvents = () => {
-    return;
+  return;
 };
 
 export {
