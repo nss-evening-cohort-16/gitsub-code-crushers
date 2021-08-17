@@ -5,7 +5,8 @@ const repoFormSubmit = (event) => {
   event.preventDefault();
   const newRepo = {
     name: document.querySelector("#repoName").value,
-    description: document.querySelector("#repoDesc").value
+    description: document.querySelector("#repoDesc").value,
+    language: document.querySelector("#repoLang").value
   };
   repositories.push(newRepo);
   repoCardBuilder(repositories);
