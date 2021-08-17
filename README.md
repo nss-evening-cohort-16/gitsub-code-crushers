@@ -25,7 +25,7 @@ You can pin repositories to stay on your home page.
 - [Project Board](https://github.com/nss-evening-cohort-16/gitsub-code-crushers/projects/2)
 
 ## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
-<!-- Nathan will add code snippet -->
+<img width="819" alt="Screen Shot 2021-08-16 at 10 20 49 PM" src="https://user-images.githubusercontent.com/86999347/129659681-f307eaca-d233-41fa-9497-613501156e3c.png">
 
 ## Project Screenshots
 <!-- Austin will add screenshot -->
