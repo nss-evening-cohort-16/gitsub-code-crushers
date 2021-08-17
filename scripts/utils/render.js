@@ -24,6 +24,9 @@ const projectsCardBuilder = (projectsArr)=> {
   renderToDom("#mainContentDiv", domString);
 };
 
+// projects form
+
+
 const overviewCardBuilder = (reposArray) => {
   const pinnedRepos = reposArray.filter(r => r.isPinned);
 
@@ -117,11 +120,35 @@ const repoFormBuilder = () => {
 }
 
 const packageFormBuilder = () => {
-  return;
+  const domString = `
+  <form>
+  <div class="mb-3">
+    <label for="packageName" class="form-label">Package Name</label>
+    <input type="text" class="form-control" id="packageName">
+  </div>
+  <div class="mb-3">
+    <label for="packageDescription" class="form-label">Package Description</label>
+    <input type="text" class="form-control" id="packageDescription">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+  `
+
+  renderToDom("#formDiv", domString);
 };
 
 const projectsFormBuilder = () => {
-  return;
+    const domString = `
+        <form>
+            <label for="boardName">Project board name</label><br>
+            <input id="boardName" type="text"><br>
+            <label for="boardDesc">Project board description</label><br>
+            <input id="boardDesc"><br>
+            <button type="submit" id="submitBtn">Create Project</button>
+        </form>
+    `;
+
+    renderToDom("#formDiv", domString);
 };
 
 
