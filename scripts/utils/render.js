@@ -107,7 +107,7 @@ const overviewFormBuilder = (repoArray) => {
         ${repoArray
           .map((r, index) => ({ ...r, index }))
           .filter((r) => !r.isPinned)
-          .map((r) => `<option value="${r.index}">${r.name} - ${r.index}</option>`)}
+          .map((r) => `<option value="${r.index}">${r.name}</option>`)}
       </select>
     </div>
     <button type="submit" class="btn btn-success">Pin Repo</button>
